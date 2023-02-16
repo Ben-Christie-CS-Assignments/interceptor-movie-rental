@@ -1,5 +1,6 @@
 import java.util.Enumeration;
 
+// intercepts the context and provides the statement based on the rentals in the context
 public class RentalStatementInterceptor implements Interceptor {
   @Override
   public void intercept(RentalStatementContext rentalStatementContext) {
@@ -20,6 +21,7 @@ public class RentalStatementInterceptor implements Interceptor {
     result += "You earned " + String.valueOf(rentalStatementContext.getCustomer().getTotalFrequentRenterPoints())
         + " frequent renter points" + "\n";
 
+    // set the result of the context to the result string
     rentalStatementContext.setResult(result);
   }
 }

@@ -1,4 +1,5 @@
 // represents a customer renting a movie
+// represents a customer renting a single movie for a specific number of days
 class Rental {
   private Movie _movie;
   private int _daysRented;
@@ -16,6 +17,7 @@ class Rental {
     return _movie;
   }
 
+  // get the charge for the movie based on the price code, add late charges too
   public double getCharge() {
     double charge = 0;
 
@@ -42,6 +44,7 @@ class Rental {
     return charge;
   }
 
+  // get the renter points for the rental
   int getFrequentRenterPoints() {
     // add bonus for a 2 day new release rental
     if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1) {

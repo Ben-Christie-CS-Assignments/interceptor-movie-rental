@@ -1,5 +1,6 @@
 import java.util.Vector;
 
+// context stores information about the statement e.g. customers name, rentals and the resulting statement
 public class RentalStatementContext {
   private Customer _customer;
   private Vector<Rental> _rentals = new Vector<>();

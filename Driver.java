@@ -20,17 +20,19 @@ public class Driver {
     // create rentalStatementContext
     RentalStatementContext rentalStatementContext = customer.createRentalStatementContext();
 
-    // create dispatcher and register interceptor
+    // create a new Dispatcher
     Dispatcher dispatcher = new Dispatcher();
 
+    // create a new Interceptor
     RentalStatementInterceptor rentalStatementInterceptor = new RentalStatementInterceptor();
 
+    // register the Interceptor with the Dispatcher
     dispatcher.registerInterceptor(rentalStatementInterceptor);
 
-    // dispatch context to interceptor
+    // dispatch context to Interceptor
     dispatcher.dispatch(rentalStatementContext);
 
-    // print result
+    // print result from context
     System.out.println(rentalStatementContext.getResult());
   }
 }
