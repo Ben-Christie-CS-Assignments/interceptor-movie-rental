@@ -17,7 +17,20 @@ public class Driver {
     customer.addRental(rental2);
     customer.addRental(rental3);
 
-    // print receipt
-    System.out.print(customer.statement());
+    // create rentalStatementContext
+    RentalStatementContext rentalStatementContext = customer.createRentalStatementContext();
+
+    // create dispatcher and register interceptor
+    Dispatcher dispatcher = new Dispatcher();
+
+    RentalStatementInterceptor rentalStatementInterceptor = new RentalStatementInterceptor();
+
+    dispatcher.registerInterceptor(rentalStatementInterceptor);
+
+    // dispatch context to interceptor
+    dispatcher.dispatch(rentalStatementContext);
+
+    // print result
+    System.out.println(rentalStatementContext.getResult());
   }
 }
